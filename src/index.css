@@ -10,11 +10,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .card-wrapper {
-  min-width: 315px;
+  /* min-width: 315px; */
+  max-width: 315px;
   margin: auto;
+  min-height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .header-container {
@@ -78,11 +82,13 @@ form input {
   background-color: #fefefe;
   padding: 20px;
   margin-top: 25px;
-  box-shadow: 0px 0px 15px black;
+  box-shadow: 0px 5px 15px #a5abc0;
   border-radius: 15px;
 }
 
-.basic-info {
+.basic-info p {
+  color: #6580a9;
+  font-size: 14px;
 }
 
 .basic-info img {
@@ -96,4 +102,63 @@ form input {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
+  margin-bottom: 35px;
+}
+
+.main-info h3 {
+  font-size: 16px;
+}
+
+.main-info div p:first-of-type {
+  color: #3092ff;
+}
+
+.main-info div p:last-of-type {
+  color: #8c9ab1;
+}
+
+.statistic-info {
+  background-color: #f6f8ff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.statistic-info div {
+  text-align: center;
+}
+
+.statistic-info div h5 {
+  font-weight: 400;
+  font-size: 11px;
+  color: #6580a9;
+}
+
+.statistic-info div p {
+  font-weight: 700;
+  color: #2c3543;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info div:first-child {
+  gap: 25px;
+}
+
+.contact-info div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-info div p {
+  font-size: 14px;
+  color: #4b6a9b;
 }

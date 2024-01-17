@@ -1,6 +1,11 @@
 import iconMoon from "./images/icon-moon.svg";
 import iconSearch from "./images/icon-search.svg";
+import iconLocation from "./images/icon-location.svg";
+import iconWebsite from "./images/icon-website.svg";
+import iconTwitter from "./images/icon-twitter.svg";
+import iconCompany from "./images/icon-company.svg";
 import { useState, useEffect } from "react";
+import { format } from "date-fns";
 // const url = "https://api.github.com/users/mojombo";
 
 const App = () => {
@@ -10,6 +15,17 @@ const App = () => {
   // Api
   const [url, setUrl] = useState("");
   const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [login, setLogin] = useState("");
+  const [created, setCreated] = useState("");
+  const [bio, setBio] = useState("");
+  const [repos, setRepos] = useState("");
+  const [followers, setFollowers] = useState("");
+  const [following, setFollowing] = useState("");
+  const [location, setLocation] = useState("");
+  const [website, setWebsite] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [company, setCompany] = useState("");
 
   // Form function
   const formSubmit = (event) => {
@@ -28,6 +44,17 @@ const App = () => {
       // setName(data[0]?.altSpellings[1]);
       // setPeople((data[0]?.population / 1000000).toFixed(2));
       setImage(data.avatar_url);
+      setName(data.name);
+      setLogin(data.login);
+      setCreated(format(new Date(data.created_at), "dd MMM yyyy"));
+      setBio(data.bio);
+      setRepos(data.public_repos);
+      setFollowers(data.followers);
+      setFollowing(data.following);
+      setLocation(data.location);
+      setWebsite(data.blog);
+      setTwitter(data.twitter_username);
+      setCompany(data.company);
     } catch (error) {
       console.error("Chyba při získávání dat z API", error);
     }
@@ -65,16 +92,50 @@ const App = () => {
           <div className="main-info">
             <img src={image} alt="" />
             <div>
-              <h3>asd</h3>
-              <p>asdasd</p>
-              <p>asdasdsad</p>
+              <h3>{name}</h3>
+              <p>{"@" + login}</p>
+              <p>{"Joined " + created}</p>
             </div>
+          </div>
+          <p>
+            {bio +
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellendus in et perferendis."}
+          </p>
+        </section>
+
+        <section className="statistic-info">
+          <div>
+            <h5>Repos</h5>
+            <p>{repos}</p>
+          </div>
+          <div>
+            <h5>Followers</h5>
+            <p>{followers}</p>
+          </div>
+          <div>
+            <h5>Following</h5>
+            <p>{following}</p>
           </div>
         </section>
 
-        <section className="statistic-info"></section>
-
-        <section className="contact-info"></section>
+        <section className="contact-info">
+          <div>
+            <img src={iconLocation} alt="" />
+            <p>{location}</p>
+          </div>
+          <div>
+            <img src={iconWebsite} alt="" />
+            <p>{website}</p>
+          </div>
+          <div>
+            <img src={iconTwitter} alt="" />
+            <p>{twitter}</p>
+          </div>
+          <div>
+            <img src={iconCompany} alt="" />
+            <p>{company}</p>
+          </div>
+        </section>
       </article>
     </section>
   );
