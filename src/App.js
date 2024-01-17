@@ -1,4 +1,5 @@
 import iconMoon from "./images/icon-moon.svg";
+import iconSearch from "./images/icon-search.svg";
 import { useState, useEffect } from "react";
 // const url = "https://api.github.com/users/mojombo";
 
@@ -25,8 +26,8 @@ const App = () => {
       const data = await response.json();
       console.log(data);
       // setName(data[0]?.altSpellings[1]);
-      setImage(data.avatar_url);
       // setPeople((data[0]?.population / 1000000).toFixed(2));
+      setImage(data.avatar_url);
     } catch (error) {
       console.error("Chyba při získávání dat z API", error);
     }
@@ -49,7 +50,7 @@ const App = () => {
       </div>
 
       <form onSubmit={formSubmit}>
-        <img src="" alt="" />
+        <img src={iconSearch} alt="" />
         <input
           type="text"
           placeholder="Search Github username..."
@@ -58,6 +59,23 @@ const App = () => {
         />
         <button type="submit">Search</button>
       </form>
+
+      <article className="info-container">
+        <section className="basic-info">
+          <div className="main-info">
+            <img src={image} alt="" />
+            <div>
+              <h3>asd</h3>
+              <p>asdasd</p>
+              <p>asdasdsad</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="statistic-info"></section>
+
+        <section className="contact-info"></section>
+      </article>
     </section>
   );
 };
