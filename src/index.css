@@ -55,6 +55,15 @@ form img {
   bottom: 20px;
 }
 
+form p {
+  position: absolute;
+  right: 90px;
+  bottom: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: red;
+}
+
 form button {
   position: absolute;
   bottom: 7px;
@@ -147,7 +156,7 @@ form input {
 }
 
 .contact-info div:first-child {
-  gap: 25px;
+  gap: 26px;
 }
 
 .contact-info div {

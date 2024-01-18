@@ -13,7 +13,7 @@ const App = () => {
   const [form, setForm] = useState("");
 
   // Api
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://api.github.com/users/octocat");
   const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
@@ -27,12 +27,16 @@ const App = () => {
   const [twitter, setTwitter] = useState("");
   const [company, setCompany] = useState("");
 
+  // No results
+  const [noResults, setNoResults] = useState(false);
+  const [placeholder, setPlaceholder] = useState("Search Github username...");
+
   // Form function
   const formSubmit = (event) => {
     event.preventDefault();
     const apiUrl = `https://api.github.com/users/${form}`;
     setUrl(apiUrl);
-    setForm("");
+    // setForm("");
   };
 
   // Api function
@@ -55,14 +59,31 @@ const App = () => {
       setWebsite(data.blog);
       setTwitter(data.twitter_username);
       setCompany(data.company);
+      setNoResults(false);
     } catch (error) {
-      console.error("Chyba při získávání dat z API", error);
+      console.error("Error getting data from API", error);
+      setNoResults(true);
+      setPlaceholder("");
+
+      setImage("");
+      setName("");
+      setLogin("");
+      setCreated("");
+      setBio("");
+      setRepos("");
+      setFollowers("");
+      setFollowing("");
+      setLocation("");
+      setWebsite("");
+      setTwitter("");
+      setCompany("");
     }
   };
 
   useEffect(() => {
     if (url) {
       getUser(url);
+      setForm("");
     }
   }, [url]);
 
@@ -80,10 +101,11 @@ const App = () => {
         <img src={iconSearch} alt="" />
         <input
           type="text"
-          placeholder="Search Github username..."
+          placeholder={placeholder}
           value={form}
           onChange={(event) => setForm(event.target.value)}
         />
+        {noResults && <p>No results</p>}
         <button type="submit">Search</button>
       </form>
 
@@ -98,42 +120,42 @@ const App = () => {
             </div>
           </div>
           <p>
-            {bio +
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem repellendus in et perferendis."}
+            {bio ||
+              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}
           </p>
         </section>
 
         <section className="statistic-info">
           <div>
             <h5>Repos</h5>
-            <p>{repos}</p>
+            <p>{repos || "0"}</p>
           </div>
           <div>
             <h5>Followers</h5>
-            <p>{followers}</p>
+            <p>{followers || "0"}</p>
           </div>
           <div>
             <h5>Following</h5>
-            <p>{following}</p>
+            <p>{following || "0"}</p>
           </div>
         </section>
 
         <section className="contact-info">
           <div>
             <img src={iconLocation} alt="" />
-            <p>{location}</p>
+            <p>{location || "Not available"}</p>
           </div>
           <div>
             <img src={iconWebsite} alt="" />
-            <p>{website}</p>
+            <p>{website || "Not available"}</p>
           </div>
           <div>
             <img src={iconTwitter} alt="" />
-            <p>{twitter}</p>
+            <p>{twitter || "Not available"}</p>
           </div>
           <div>
             <img src={iconCompany} alt="" />
-            <p>{company}</p>
+            <p>{company || "Not available"}</p>
           </div>
         </section>
       </article>
