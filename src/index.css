@@ -34,14 +34,21 @@ body {
 .theme-wrapper {
   display: flex;
   gap: 10px;
+  cursor: pointer;
 }
 
 .theme-wrapper h5 {
   color: #4b6a9b;
+  text-transform: uppercase;
 }
 
-.theme-wrapper h5 {
-  text-transform: uppercase;
+.theme-wrapper:hover h5 {
+  color: #222731;
+}
+
+.theme-wrapper:hover img {
+  filter: brightness(0) saturate(100%) invert(11%) sepia(4%) saturate(3860%)
+    hue-rotate(182deg) brightness(95%) contrast(89%);
 }
 
 form {
@@ -73,6 +80,11 @@ form button {
   padding: 13px 15px;
   background-color: #0079ff;
   color: #f6f8ff;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #60abff;
 }
 
 form input {
@@ -85,6 +97,7 @@ form input {
   color: #768fb3;
   background-color: #fefefe;
   box-shadow: 0px 5px 15px #a5abc0;
+  cursor: pointer;
 }
 
 .info-container {
@@ -170,4 +183,14 @@ form input {
 .contact-info div p {
   font-size: 14px;
   color: #4b6a9b;
+}
+
+.contact-info p a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #4b6a9b;
+}
+
+.contact-info p a:hover {
+  text-decoration: underline;
 }

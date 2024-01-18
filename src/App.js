@@ -44,9 +44,8 @@ const App = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
-      // setName(data[0]?.altSpellings[1]);
-      // setPeople((data[0]?.population / 1000000).toFixed(2));
+      // console.log(data);
+
       setImage(data.avatar_url);
       setName(data.name);
       setLogin(data.login);
@@ -60,6 +59,7 @@ const App = () => {
       setTwitter(data.twitter_username);
       setCompany(data.company);
       setNoResults(false);
+      setPlaceholder("Search Github username...");
     } catch (error) {
       console.error("Error getting data from API", error);
       setNoResults(true);
@@ -147,7 +147,9 @@ const App = () => {
           </div>
           <div>
             <img src={iconWebsite} alt="" />
-            <p>{website || "Not available"}</p>
+            <p>
+              <a href={website}>{website || "Not available"}</a>{" "}
+            </p>
           </div>
           <div>
             <img src={iconTwitter} alt="" />
