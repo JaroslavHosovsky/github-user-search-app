@@ -10,16 +10,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
   transition: all 0.5s;
 }
 .card-wrapper {
-  /* min-width: 315px; */
   max-width: 315px;
-  margin: auto;
   min-height: 100vh;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header-container {
@@ -123,10 +121,14 @@ form input {
 
 .input-light::placeholder {
   color: #4b6a9b;
+  font-size: 12px;
+  word-spacing: 0.5px;
 }
 
 .input-dark::placeholder {
   color: #fefefe;
+  font-size: 12px;
+  word-spacing: 0.5px;
 }
 
 .info-container {
@@ -197,17 +199,38 @@ form input {
   margin-top: 20px;
 }
 
-.contact-info div:first-child {
-  gap: 26px;
+.media-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.contact-info div {
+.media-divider div {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+/* .location {
+  gap: 26px !important;
+} */
+
+.media-divider div img {
+  width: 20px;
+  height: auto;
+}
+
+/* .contact-info div:first-child {
+  gap: 26px;
+} */
+
+/* .contact-info div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
   margin-bottom: 10px;
-}
+} */
 
 .contact-info div p {
   font-size: 14px;
@@ -222,4 +245,35 @@ form input {
 
 .contact-info p a:hover {
   text-decoration: underline;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .card-wrapper {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .statistic-info div p {
+    text-align: left;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .media-divider {
+    margin-right: 35px;
+  }
 }

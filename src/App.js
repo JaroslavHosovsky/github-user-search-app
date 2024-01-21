@@ -226,10 +226,7 @@ const App = () => {
               <p>{"Joined " + created}</p>
             </div>
           </div>
-          <p className="bio">
-            {bio ||
-              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}
-          </p>
+          <p className="bio">{bio || "This profile has no bio"}</p>
         </section>
 
         <section className="statistic-info">
@@ -248,23 +245,28 @@ const App = () => {
         </section>
 
         <section className="contact-info">
-          <div>
-            <img src={iconLocation} className="contact-info-img" alt="" />
-            <p>{location || "Not available"}</p>
+          <div className="media-divider">
+            <div className="center-content">
+              <img src={iconLocation} className="contact-info-img" alt="" />
+              <p>{location || "Not available"}</p>
+            </div>
+            <div>
+              <img src={iconWebsite} className="contact-info-img" alt="" />
+              <p>
+                <a href={website}>{website || "Not available"}</a>{" "}
+              </p>
+            </div>
           </div>
-          <div>
-            <img src={iconWebsite} className="contact-info-img" alt="" />
-            <p>
-              <a href={website}>{website || "Not available"}</a>{" "}
-            </p>
-          </div>
-          <div>
-            <img src={iconTwitter} className="contact-info-img" alt="" />
-            <p>{twitter || "Not available"}</p>
-          </div>
-          <div>
-            <img src={iconCompany} className="contact-info-img" alt="" />
-            <p>{company || "Not available"}</p>
+
+          <div className="media-divider">
+            <div>
+              <img src={iconTwitter} className="contact-info-img" alt="" />
+              <p>{twitter || "Not available"}</p>
+            </div>
+            <div>
+              <img src={iconCompany} className="contact-info-img" alt="" />
+              <p>{company || "Not available"}</p>
+            </div>
           </div>
         </section>
       </article>
