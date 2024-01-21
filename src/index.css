@@ -52,6 +52,26 @@ body {
     hue-rotate(182deg) brightness(95%) contrast(89%);
 }
 
+.theme-wrapper-dark {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.theme-wrapper-dark h5 {
+  color: #fefefe;
+  text-transform: uppercase;
+}
+
+.theme-wrapper-dark:hover h5 {
+  color: #90a4d4;
+}
+
+.theme-wrapper-dark:hover img {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(67%) saturate(363%)
+    hue-rotate(192deg) brightness(89%) contrast(85%);
+}
+
 form {
   position: relative;
   margin-top: 40px;
@@ -99,6 +119,14 @@ form input {
   background-color: #fefefe;
   box-shadow: 0px 5px 15px #a5abc0;
   cursor: pointer;
+}
+
+.input-light::placeholder {
+  color: #4b6a9b;
+}
+
+.input-dark::placeholder {
+  color: #fefefe;
 }
 
 .info-container {
