@@ -247,7 +247,11 @@ const App = () => {
         <section className="contact-info">
           <div className="media-divider">
             <div className="center-content">
-              <img src={iconLocation} className="contact-info-img" alt="" />
+              <img
+                src={iconLocation}
+                className="contact-info-img location"
+                alt=""
+              />
               <p>{location || "Not available"}</p>
             </div>
             <div>
